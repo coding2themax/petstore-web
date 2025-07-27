@@ -47,11 +47,53 @@ This website serves as a demonstration project showcasing:
 
 ## 🛠️ Technology Stack
 
-_[Technology details to be added as the project develops]_
+- **Frontend Framework**: React 18 with TypeScript
+- **Package Manager**: pnpm
+- **Build Tool**: Webpack 5
+- **Development**: Webpack Dev Server with Hot Module Replacement
+- **Code Quality**: ESLint with TypeScript and React plugins
+- **Styling**: CSS with CSS Modules support
+- **Routing**: React Router (ready for implementation)
+
+### Development Features
+
+- TypeScript for type safety
+- Path aliases for clean imports (@/components, @/pages, etc.)
+- Hot reloading during development
+- Production-optimized builds with code splitting
+- Source maps for debugging
 
 ## 🚀 Getting Started
 
-_[Setup and installation instructions to be added]_
+### Prerequisites
+
+- Node.js (>= 16.0.0)
+- pnpm (>= 7.0.0)
+
+### Installation
+
+1. Install dependencies:
+
+```bash
+pnpm install
+```
+
+2. Start the development server:
+
+```bash
+pnpm dev
+```
+
+3. Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
+
+### Available Scripts
+
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm build:dev` - Build for development
+- `pnpm type-check` - Run TypeScript type checking
+- `pnpm lint` - Run ESLint
+- `pnpm lint:fix` - Run ESLint with auto-fix
 
 ## 📧 Contact
 

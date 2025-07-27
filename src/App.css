@@ -1,0 +1,157 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 3rem 0;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Features */
+.features {
+  margin-bottom: 4rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Disclaimer */
+.disclaimer {
+  margin-bottom: 2rem;
+}
+
+.disclaimer-box {
+  background: #fff3cd;
+  border: 2px solid #ffc107;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.disclaimer-box h3 {
+  color: #856404;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.disclaimer-box p {
+  color: #856404;
+  font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+  background: #343a40;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+}
+
+.footer p:last-child {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+  }
+  
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+}
