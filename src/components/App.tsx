@@ -1,15 +1,11 @@
 import React from 'react';
+import { Header, Footer, PetShowcase } from './common';
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="header">
-        <div className="container">
-          <h1>🐾 PetStore Web</h1>
-          <p className="tagline">Your Trusted Pet Companion</p>
-        </div>
-      </header>
+      <Header />
       
       <main className="main">
         <div className="container">
@@ -57,12 +53,9 @@ const App: React.FC = () => {
         </div>
       </main>
       
-      <footer className="footer">
-        <div className="container">
-          <p>&copy; 2025 PetStore Web - A fictional demonstration project</p>
-          <p>Remember: Always adopt from local shelters and rescue organizations! 🐕🐈</p>
-        </div>
-      </footer>
+      <PetShowcase />
+      
+      <Footer />
     </div>
   );
 };
