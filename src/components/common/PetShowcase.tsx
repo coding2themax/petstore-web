@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PetCard, PetDetails } from '../pet';
 import { samplePets } from '../../data/samplePets';
 import { Pet } from '../../types/Pet';
@@ -51,12 +52,18 @@ const PetShowcase: React.FC<PetShowcaseProps> = ({ onViewAllPets }) => {
         </div>
         
         <div className="showcase-footer">
-          <button 
-            className="btn btn-outline"
-            onClick={onViewAllPets}
-          >
-            View All Pets
-          </button>
+          {onViewAllPets ? (
+            <button 
+              className="btn btn-outline"
+              onClick={onViewAllPets}
+            >
+              View All Pets
+            </button>
+          ) : (
+            <Link to="/pets" className="btn btn-outline">
+              View All Pets
+            </Link>
+          )}
         </div>
       </div>
 

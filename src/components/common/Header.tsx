@@ -1,21 +1,13 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
 interface HeaderProps {
   className?: string;
-  onNavigate?: (page: string) => void;
-  currentPage?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ className = '', onNavigate, currentPage = 'home' }) => {
-  const handleNavClick = (page: string) => {
-    if (onNavigate) {
-      onNavigate(page);
-    } else {
-      // Fallback for hash navigation if no onNavigate provided
-      window.location.hash = `#${page}`;
-    }
-  };
+const Header: React.FC<HeaderProps> = ({ className = '' }) => {
+  const location = useLocation();
   return (
     <header className={`header ${className}`}>
       <div className="container">
@@ -28,44 +20,44 @@ const Header: React.FC<HeaderProps> = ({ className = '', onNavigate, currentPage
           <nav className="navigation">
             <ul className="nav-list">
               <li>
-                <button 
-                  className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}
-                  onClick={() => handleNavClick('home')}
+                <Link 
+                  to="/" 
+                  className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
                 >
                   Home
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  className={`nav-link ${currentPage === 'pets' ? 'active' : ''}`}
-                  onClick={() => handleNavClick('pets')}
+                <Link 
+                  to="/pets" 
+                  className={`nav-link ${location.pathname === '/pets' ? 'active' : ''}`}
                 >
                   Pets
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  className={`nav-link ${currentPage === 'services' ? 'active' : ''}`}
-                  onClick={() => handleNavClick('services')}
+                <Link 
+                  to="/services" 
+                  className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`}
                 >
                   Services
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  className={`nav-link ${currentPage === 'supplies' ? 'active' : ''}`}
-                  onClick={() => handleNavClick('supplies')}
+                <Link 
+                  to="/supplies" 
+                  className={`nav-link ${location.pathname === '/supplies' ? 'active' : ''}`}
                 >
                   Supplies
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  className={`nav-link ${currentPage === 'about' ? 'active' : ''}`}
-                  onClick={() => handleNavClick('about')}
+                <Link 
+                  to="/about" 
+                  className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
                 >
                   About
-                </button>
+                </Link>
               </li>
             </ul>
           </nav>
