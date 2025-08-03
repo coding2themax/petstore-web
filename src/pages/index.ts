@@ -3,3 +3,4 @@ export { default as PetsPage } from './PetsPage';
 export { default as ServicesPage } from './ServicesPage';
 export { default as SuppliesPage } from './SuppliesPage';
 export { default as AboutPage } from './AboutPage';
+export { default as ExpertGuidancePage } from './ExpertGuidancePage';

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Header, Footer, PetShowcase } from '../components/common';
 import './HomePage.css';
 
@@ -17,25 +18,25 @@ const HomePage: React.FC = () => {
           
           <section className="features">
             <div className="feature-grid">
-              <div className="feature-card">
+              <Link to="/pets" className="feature-card">
                 <h3>🐕 Pet Sales</h3>
                 <p>Wide variety of pets including dogs, cats, birds, fish, reptiles, and small mammals</p>
-              </div>
+              </Link>
               
-              <div className="feature-card">
+              <Link to="/services" className="feature-card">
                 <h3>✂️ Pet Care Services</h3>
                 <p>Professional grooming, veterinary care, training, and boarding services</p>
-              </div>
+              </Link>
               
-              <div className="feature-card">
+              <Link to="/supplies" className="feature-card">
                 <h3>🧸 Pet Supplies</h3>
                 <p>Premium food, toys, accessories, and health products for your beloved pets</p>
-              </div>
+              </Link>
               
-              <div className="feature-card">
+              <Link to="/expert-guidance" className="feature-card">
                 <h3>💡 Expert Guidance</h3>
                 <p>Helping potential pet owners choose the perfect companion for their lifestyle</p>
-              </div>
+              </Link>
             </div>
           </section>
           

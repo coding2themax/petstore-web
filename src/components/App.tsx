@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './common';
-import { HomePage, PetsPage, ServicesPage, SuppliesPage, AboutPage } from '../pages';
+import { HomePage, PetsPage, ServicesPage, SuppliesPage, AboutPage, ExpertGuidancePage } from '../pages';
 import './App.css';
 
 const App: React.FC = () => {
@@ -16,6 +16,7 @@ const App: React.FC = () => {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/supplies" element={<SuppliesPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/expert-guidance" element={<ExpertGuidancePage />} />
         </Routes>
         
         <Footer />
