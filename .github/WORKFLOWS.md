@@ -7,15 +7,18 @@ This repository includes several GitHub Actions workflows for continuous integra
 ### 1. CI/CD Pipeline (`ci-cd.yml`)
 
 **Triggers:**
+
 - Push to `main` or `develop` branches
 - Pull requests to `main` or `develop` branches
 
 **Jobs:**
+
 - **lint-and-type-check**: Runs TypeScript type checking and ESLint
 - **build**: Builds the project for production
 - **deploy**: Deploys to GitHub Pages (only on `main` branch pushes)
 
 **Features:**
+
 - Uses pnpm for package management
 - Caches dependencies for faster builds
 - Uploads build artifacts for 30 days
@@ -24,9 +27,11 @@ This repository includes several GitHub Actions workflows for continuous integra
 ### 2. Pull Request Checks (`pr-checks.yml`)
 
 **Triggers:**
+
 - Pull request opened, synchronized, or reopened
 
 **Features:**
+
 - Comprehensive quality checks for PRs
 - Build size reporting
 - Shows build summary in GitHub Actions summary
@@ -35,11 +40,13 @@ This repository includes several GitHub Actions workflows for continuous integra
 ### 3. Security and Dependencies (`security.yml`)
 
 **Triggers:**
+
 - Weekly schedule (Sundays at 2 AM UTC)
 - Manual dispatch
 - Pull requests (for dependency review)
 
 **Features:**
+
 - Security audit using `pnpm audit`
 - Outdated dependency reporting
 - Dependency review for PRs
@@ -48,6 +55,7 @@ This repository includes several GitHub Actions workflows for continuous integra
 ### 4. Dependabot Configuration (`dependabot.yml`)
 
 **Features:**
+
 - Weekly dependency updates on Mondays
 - Groups minor and patch updates
 - Separate handling for production and development dependencies
@@ -71,12 +79,14 @@ To enable GitHub Pages deployment:
 ### Environment Variables
 
 The workflows use the following environment variables:
+
 - `NODE_VERSION`: Node.js version (currently set to '18')
 - `PNPM_VERSION`: pnpm version (currently set to '8.15.0')
 
 ### Required Permissions
 
 Make sure your repository has the following permissions enabled:
+
 - Actions: Read and write permissions
 - Pages: Write permissions
 - Pull requests: Write permissions (for status checks)
@@ -108,12 +118,14 @@ Add these badges to your main README.md to show workflow status:
 ### Modifying Build Output Directory
 
 If your build outputs to a different directory than `dist/`, update the following in the workflows:
+
 - `path: dist/` in upload-artifact and upload-pages-artifact steps
 - Build size check in pr-checks.yml
 
 ### Adding Tests
 
 To add test jobs:
+
 1. Add test script to package.json
 2. Add test job to ci-cd.yml workflow
 3. Make the deploy job depend on tests passing
@@ -121,6 +133,7 @@ To add test jobs:
 ### Environment-Specific Deployments
 
 To add staging/production environments:
+
 1. Create separate workflow files for each environment
 2. Use different branch triggers
 3. Configure environment-specific secrets and variables
