@@ -1,6 +1,7 @@
 {
   "name": "petstore-web",
   "version": "1.0.0",
+  "type": "module",
   "description": "A fictional pet store website for demonstration purposes",
   "main": "src/index.tsx",
   "scripts": {
@@ -8,8 +9,8 @@
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "type-check": "tsc --noEmit",
-    "lint": "eslint src --ext .ts,.tsx",
-    "lint:fix": "eslint src --ext .ts,.tsx --fix"
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "keywords": [
     "react",
@@ -30,14 +31,16 @@
     "react-router-dom": "^6.30.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.34.0",
     "@types/react": "^18.3.24",
     "@types/react-dom": "^18.3.7",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
+    "@typescript-eslint/eslint-plugin": "^8.41.0",
+    "@typescript-eslint/parser": "^8.41.0",
     "css-loader": "^6.11.0",
     "eslint": "^9.34.0",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
     "html-webpack-plugin": "^5.6.4",
     "style-loader": "^3.3.4",
     "ts-loader": "^9.5.4",
