@@ -24,6 +24,7 @@ export default [
         window: "readonly",
         document: "readonly",
         console: "readonly",
+        HTMLElement: "readonly",
         // Node globals
         process: "readonly",
         __dirname: "readonly",
@@ -41,10 +42,15 @@ export default [
       "react-refresh": reactRefresh,
     },
     rules: {
+      // Disable no-unused-vars for function parameters in interfaces
+      "no-unused-vars": "off",
       // TypeScript ESLint recommended rules
       "@typescript-eslint/no-unused-vars": [
         "error",
-        { argsIgnorePattern: "^_" },
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
       ],
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-unsafe-assignment": "off",

@@ -1,58 +1,77 @@
-import React, { useState, useMemo } from 'react';
-import { PetCard, PetDetails } from '../components/pet';
-import { samplePets } from '../data/samplePets';
-import { Pet } from '../types/Pet';
-import './PetsPage.css';
+import React, { useMemo, useState } from "react";
+import { PetCard, PetDetails } from "../components/pet";
+import { samplePets } from "../data/samplePets";
+import { Pet } from "../types/Pet";
+import "./PetsPage.css";
 
 const PetsPage: React.FC = () => {
   const [selectedPet, setSelectedPet] = useState<Pet | null>(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedSpecies, setSelectedSpecies] = useState<string>('all');
-  const [selectedSize, setSelectedSize] = useState<string>('all');
-  const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: 0, max: 5000 });
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedSpecies, setSelectedSpecies] = useState<string>("all");
+  const [selectedSize, setSelectedSize] = useState<string>("all");
+  const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({
+    min: 0,
+    max: 5000,
+  });
   const [showAvailableOnly, setShowAvailableOnly] = useState(true);
-  const [sortBy, setSortBy] = useState<'name' | 'price' | 'age'>('name');
+  const [sortBy, setSortBy] = useState<"name" | "price" | "age">("name");
 
   // Get unique species for filter dropdown
   const uniqueSpecies = useMemo(() => {
-    return Array.from(new Set(samplePets.map(pet => pet.species)));
+    return Array.from(new Set(samplePets.map((pet) => pet.species)));
   }, []);
 
   // Get unique sizes for filter dropdown
   const uniqueSizes = useMemo(() => {
-    return Array.from(new Set(samplePets.map(pet => pet.size)));
+    return Array.from(new Set(samplePets.map((pet) => pet.size)));
   }, []);
 
   // Filter and sort pets based on current filters
   const filteredPets = useMemo(() => {
-    let filtered = samplePets.filter(pet => {
-      const matchesSearch = pet.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           pet.breed.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           pet.description.toLowerCase().includes(searchTerm.toLowerCase());
-      
-      const matchesSpecies = selectedSpecies === 'all' || pet.species === selectedSpecies;
-      const matchesSize = selectedSize === 'all' || pet.size === selectedSize;
-      const matchesPrice = pet.price >= priceRange.min && pet.price <= priceRange.max;
+    let filtered = samplePets.filter((pet) => {
+      const matchesSearch =
+        pet.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        pet.breed.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        pet.description.toLowerCase().includes(searchTerm.toLowerCase());
+
+      const matchesSpecies =
+        selectedSpecies === "all" || pet.species === selectedSpecies;
+      const matchesSize = selectedSize === "all" || pet.size === selectedSize;
+      const matchesPrice =
+        pet.price >= priceRange.min && pet.price <= priceRange.max;
       const matchesAvailability = !showAvailableOnly || pet.isAvailable;
 
-      return matchesSearch && matchesSpecies && matchesSize && matchesPrice && matchesAvailability;
+      return (
+        matchesSearch &&
+        matchesSpecies &&
+        matchesSize &&
+        matchesPrice &&
+        matchesAvailability
+      );
     });
 
     // Sort pets
     filtered.sort((a, b) => {
       switch (sortBy) {
-        case 'price':
+        case "price":
           return a.price - b.price;
-        case 'age':
+        case "age":
           return a.age - b.age;
-        case 'name':
+        case "name":
         default:
           return a.name.localeCompare(b.name);
       }
     });
 
     return filtered;
-  }, [samplePets, searchTerm, selectedSpecies, selectedSize, priceRange, showAvailableOnly, sortBy]);
+  }, [
+    searchTerm,
+    selectedSpecies,
+    selectedSize,
+    priceRange,
+    showAvailableOnly,
+    sortBy,
+  ]);
 
   const handleViewDetails = (pet: Pet) => {
     setSelectedPet(pet);
@@ -63,22 +82,22 @@ const PetsPage: React.FC = () => {
   };
 
   const handleAddToCart = (pet: Pet) => {
-    console.log('Add to cart:', pet.name);
+    console.log("Add to cart:", pet.name);
     // This would typically add the pet to the shopping cart
   };
 
   const handleScheduleVisit = (pet: Pet) => {
-    console.log('Schedule visit for:', pet.name);
+    console.log("Schedule visit for:", pet.name);
     // This would typically open a scheduling form or modal
   };
 
   const clearFilters = () => {
-    setSearchTerm('');
-    setSelectedSpecies('all');
-    setSelectedSize('all');
+    setSearchTerm("");
+    setSelectedSpecies("all");
+    setSelectedSize("all");
     setPriceRange({ min: 0, max: 5000 });
     setShowAvailableOnly(true);
-    setSortBy('name');
+    setSortBy("name");
   };
 
   return (
@@ -86,7 +105,10 @@ const PetsPage: React.FC = () => {
       <div className="container">
         <div className="page-header">
           <h1>Find Your Perfect Pet</h1>
-          <p>Browse our complete collection of loving pets looking for their forever homes</p>
+          <p>
+            Browse our complete collection of loving pets looking for their
+            forever homes
+          </p>
         </div>
 
         <div className="filters-section">
@@ -111,8 +133,10 @@ const PetsPage: React.FC = () => {
                 className="filter-select"
               >
                 <option value="all">All Species</option>
-                {uniqueSpecies.map(species => (
-                  <option key={species} value={species}>{species}</option>
+                {uniqueSpecies.map((species) => (
+                  <option key={species} value={species}>
+                    {species}
+                  </option>
                 ))}
               </select>
             </div>
@@ -126,8 +150,10 @@ const PetsPage: React.FC = () => {
                 className="filter-select"
               >
                 <option value="all">All Sizes</option>
-                {uniqueSizes.map(size => (
-                  <option key={size} value={size}>{size}</option>
+                {uniqueSizes.map((size) => (
+                  <option key={size} value={size}>
+                    {size}
+                  </option>
                 ))}
               </select>
             </div>
@@ -137,7 +163,9 @@ const PetsPage: React.FC = () => {
               <select
                 id="sort-filter"
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as 'name' | 'price' | 'age')}
+                onChange={(e) =>
+                  setSortBy(e.target.value as "name" | "price" | "age")
+                }
                 className="filter-select"
               >
                 <option value="name">Name</option>
@@ -155,7 +183,12 @@ const PetsPage: React.FC = () => {
                 max="5000"
                 step="50"
                 value={priceRange.max}
-                onChange={(e) => setPriceRange({ ...priceRange, max: parseInt(e.target.value) })}
+                onChange={(e) =>
+                  setPriceRange({
+                    ...priceRange,
+                    max: parseInt(e.target.value),
+                  })
+                }
                 className="price-slider"
               />
             </div>
@@ -183,7 +216,8 @@ const PetsPage: React.FC = () => {
         <div className="results-section">
           <div className="results-header">
             <h2>
-              {filteredPets.length} Pet{filteredPets.length !== 1 ? 's' : ''} Found
+              {filteredPets.length} Pet{filteredPets.length !== 1 ? "s" : ""}{" "}
+              Found
             </h2>
             {filteredPets.length === 0 && (
               <div className="no-results">

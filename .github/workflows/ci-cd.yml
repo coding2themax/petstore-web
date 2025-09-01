@@ -107,9 +107,8 @@ jobs:
       pages: write
       id-token: write
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    #environment: github-pages
+    # The deployment URL will be automatically set by GitHub Pages
 
     steps:
       - name: Checkout code
