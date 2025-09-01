@@ -6,6 +6,15 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+# pnpm-lock.yaml
+
+# Production build
+dist/
+build/
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -134,3 +143,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/mcp.json
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/typescript.json

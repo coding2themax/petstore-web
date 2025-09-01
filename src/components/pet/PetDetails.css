@@ -1,0 +1,513 @@
+.pet-details-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.pet-details-modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.close-button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.pet-details-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+/* Images Section */
+.pet-images-section {
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.image-carousel {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.pet-detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px 0 0 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.carousel-btn:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.carousel-btn:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.carousel-btn.prev {
+  left: 15px;
+}
+
+.carousel-btn.next {
+  right: 15px;
+}
+
+.image-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #d1d3d4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #667eea;
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background: #667eea;
+}
+
+.unavailable-banner {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(220, 53, 69, 0.9);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+}
+
+/* Info Section */
+.pet-info-section {
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.pet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.pet-title {
+  flex: 1;
+}
+
+.pet-name {
+  font-size: 2rem;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.pet-species-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #667eea;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.species-emoji {
+  font-size: 1.1rem;
+}
+
+.pet-price {
+  text-align: right;
+}
+
+.price-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+.price-amount {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Basic Info Grid */
+.pet-basic-info {
+  margin-bottom: 2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item label {
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item span {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.energy-low { color: #28a745; }
+.energy-medium { color: #ffc107; }
+.energy-high { color: #dc3545; }
+
+.health-status {
+  font-weight: 600;
+}
+
+/* Description */
+.pet-description {
+  margin-bottom: 2rem;
+}
+
+.pet-description h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.pet-description p {
+  color: #6c757d;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Characteristics */
+.pet-characteristics {
+  margin-bottom: 2rem;
+}
+
+.pet-characteristics h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.characteristics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.characteristic-tag {
+  background: #e9ecef;
+  color: #495057;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.characteristic-tag:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Health Info */
+.pet-health-info {
+  margin-bottom: 2rem;
+}
+
+.pet-health-info h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.health-badges {
+  display: flex;
+  gap: 1rem;
+}
+
+.health-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.health-badge.positive {
+  background: #d4edda;
+  color: #155724;
+  border: 2px solid #c3e6cb;
+}
+
+.health-badge.negative {
+  background: #f8d7da;
+  color: #721c24;
+  border: 2px solid #f5c6cb;
+}
+
+.badge-icon {
+  font-size: 1.1rem;
+}
+
+/* Compatibility */
+.pet-compatibility {
+  margin-bottom: 2rem;
+}
+
+.pet-compatibility h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.compatibility-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.compatibility-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.compatibility-item.positive {
+  background: #d4edda;
+  color: #155724;
+}
+
+.compatibility-item.negative {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.compatibility-icon {
+  font-size: 1.2rem;
+}
+
+/* Actions */
+.pet-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e9ecef;
+}
+
+.btn {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  text-align: center;
+}
+
+.btn:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: #667eea;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.btn-secondary:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.unavailable-actions {
+  text-align: center;
+  width: 100%;
+}
+
+.unavailable-actions p {
+  color: #6c757d;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pet-details-overlay {
+    padding: 10px;
+  }
+  
+  .pet-details-modal {
+    max-height: 95vh;
+  }
+  
+  .pet-details-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .pet-detail-image {
+    border-radius: 16px 16px 0 0;
+  }
+  
+  .pet-info-section {
+    padding: 1.5rem;
+  }
+  
+  .pet-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .pet-price {
+    text-align: left;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .health-badges {
+    flex-direction: column;
+  }
+  
+  .pet-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .pet-info-section {
+    padding: 1rem;
+  }
+  
+  .pet-name {
+    font-size: 1.5rem;
+  }
+  
+  .price-amount {
+    font-size: 1.5rem;
+  }
+  
+  .close-button {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+}
