@@ -143,3 +143,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/mcp.json
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/typescript.json
