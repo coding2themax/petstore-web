@@ -1,0 +1,20 @@
+{
+  "projectId": "69f53fc3-43d9-4132-aa93-a91b8b74f270",
+  "pkg": "petstore-web",
+  "globalName": "PetstoreWeb",
+  "shape": "package",
+  "srcDir": "src",
+  "tsconfig": "tsconfig.json",
+  "componentSrcMap": {
+    "PetCard": "src/components/pet/PetCard.tsx",
+    "PetDetails": "src/components/pet/PetDetails.tsx"
+  },
+  "dtsPropsFor": {
+    "PetCard": "/** The pet to render. */\npet: { id: string; name: string; species: string; breed: string; age: number; gender: \"Male\" | \"Female\"; price: number; description: string; imageUrl: string; isAvailable: boolean; characteristics: string[]; healthStatus: \"Excellent\" | \"Good\" | \"Fair\"; vaccinated: boolean; spayedNeutered: boolean; size: \"Small\" | \"Medium\" | \"Large\" | \"Extra Large\"; energyLevel: \"Low\" | \"Medium\" | \"High\"; goodWithKids: boolean; goodWithPets: boolean };\n/** Fired when the \"View Details\" button is clicked. */\nonViewDetails?: (pet: PetCardProps[\"pet\"]) => void;\n/** Fired when the \"Add to Cart\" button is clicked. */\nonAddToCart?: (pet: PetCardProps[\"pet\"]) => void;\n/** Extra class name appended to the card root element. */\nclassName?: string;",
+    "PetDetails": "/** The pet to render in the detail modal. */\npet: { id: string; name: string; species: string; breed: string; age: number; gender: \"Male\" | \"Female\"; price: number; description: string; imageUrl: string; isAvailable: boolean; characteristics: string[]; healthStatus: \"Excellent\" | \"Good\" | \"Fair\"; vaccinated: boolean; spayedNeutered: boolean; size: \"Small\" | \"Medium\" | \"Large\" | \"Extra Large\"; energyLevel: \"Low\" | \"Medium\" | \"High\"; goodWithKids: boolean; goodWithPets: boolean };\n/** Fired when the close (✕) button is clicked. */\nonClose?: () => void;\n/** Fired when the \"Add to Cart\" button is clicked. */\nonAddToCart?: (pet: PetDetailsProps[\"pet\"]) => void;\n/** Fired when the \"Schedule a Visit\" button is clicked. */\nonScheduleVisit?: (pet: PetDetailsProps[\"pet\"]) => void;\n/** Extra class name appended to the overlay root element. */\nclassName?: string;"
+  },
+  "overrides": {
+    "PetDetails": { "cardMode": "single", "viewport": "1100x1500" }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
+}
